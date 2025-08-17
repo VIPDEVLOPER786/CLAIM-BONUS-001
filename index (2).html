@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krishna Rewards 2025</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fdfbfb, #ebedee);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #333;
+    }
+    header {
+      padding: 20px;
+      background: linear-gradient(90deg, #4facfe, #00f2fe);
+      color: white;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 16px;
+    }
+    .container {
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 15px;
+    }
+    .channel {
+      background: white;
+      border-radius: 15px;
+      padding: 15px;
+      margin: 12px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .channel h4 {
+      margin: 0;
+      font-size: 18px;
+      color: #333;
+    }
+    button {
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      color: white;
+      transition: 0.3s;
+    }
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #764ba2, #667eea);
+    }
+    button:disabled {
+      background: #4caf50;
+      cursor: default;
+      transform: none;
+    }
+    #bonus {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      background: linear-gradient(90deg, #f7971e, #ffd200);
+      border-radius: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      animation: glow 1.5s infinite alternate;
+    }
+    @keyframes glow {
+      from { box-shadow: 0 0 10px #ffd200; }
+      to { box-shadow: 0 0 20px #f7971e; }
+    }
+    #withdrawBox {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    #withdrawBox input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    #withdrawBox button {
+      width: 50%;
+      margin-top: 10px;
+      background: linear-gradient(90deg, #11998e, #38ef7d);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌸 Krishna Rewards 2025 🌸</h1>
+    <p>🎉 Join 9 Channels & Earn Upto 100₹ 🎉</p>
+    <small>Complete all channels to unlock Krishna’s blessings 💖</small>
+  </header>
+
+  <div class="container" id="channels"></div>
+
+  <div id="bonus">✨ Congratulations! Bonus Unlocked! ✨</div>
+
+  <div id="withdrawBox">
+    <h3>💵 Withdraw Your Reward</h3>
+    <input type="text" id="upi" placeholder="Enter your UPI ID">
+    <br>
+    <button onclick="withdraw()">Withdraw</button>
+  </div>
+
+  <script>
+    // 🔗 Your Telegram channel links
+    const channelLinks = [
+      "https://t.me/+Kea3ExAuIFdiMWM9", 
+      "https://t.me/VIPxHACKINGG", 
+      "https://t.me/+-iujJjUCUC8yNzBl", 
+      "https://t.me/VIPxHACKINGG", 
+      "https://t.me/+Kea3ExAuIFdiMWM9", 
+      "https://t.me/+-iujJjUCUC8yNzBl", 
+      "https://t.me/+Kea3ExAuIFdiMWM9", 
+      "https://t.me/+LTd0Eht8PoM0NjE9", 
+      "https://t.me/+Kea3ExAuIFdiMWM9"
+    ];
+
+    const channelNames = [
+      "Rozana Tips",
+      "Champ Cash",
+      "Earning Tricks",
+      "Earning Craze",
+      "Offer Loots",
+      "Deal Zone",
+      "Money Heist",
+      "Saving Hub",
+      "Reward King"
+    ];
+
+    let joined = 0;
+    const total = channelNames.length;
+
+    function renderChannels() {
+      const list = document.getElementById("channels");
+      list.innerHTML = "";
+
+      channelNames.forEach((ch, i) => {
+        const div = document.createElement("div");
+        div.className = "channel";
+        div.innerHTML = `
+          <h4>💎 ${ch}</h4>
+          <button id="btn${i}">Join & Get</button>
+        `;
+        list.appendChild(div);
+
+        document.getElementById(`btn${i}`).addEventListener("click", () => {
+          window.open(channelLinks[i], "_blank"); // open telegram channel
+          document.getElementById(`btn${i}`).innerText = "✅ Joined";
+          document.getElementById(`btn${i}`).disabled = true;
+          joined++;
+          if (joined === total) {
+            document.getElementById("bonus").style.display = "block";
+            document.getElementById("withdrawBox").style.display = "block";
+            launchConfetti();
+          }
+        });
+      });
+    }
+
+    // 🎊 Confetti Effect
+    function launchConfetti() {
+      const duration = 2 * 1000;
+      const end = Date.now() + duration;
+
+      (function frame() {
+        confetti({
+          particleCount: 7,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 }
+        });
+        confetti({
+          particleCount: 7,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 }
+        });
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
+    }
+
+    function withdraw() {
+      const upi = document.getElementById("upi").value;
+      if (!upi.includes("@")) {
+        alert("❌ Please enter a valid UPI ID!");
+        return;
+      }
+      alert("✅ Withdrawal request submitted for " + upi + ".\nAmount will be credited soon!");
+      // Here you can connect to backend/server to actually save UPI requests.
+    }
+
+    window.onload = renderChannels;
+  </script>
+
+  <!-- 🎊 Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</body>
+</html>
